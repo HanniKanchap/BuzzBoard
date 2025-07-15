@@ -1,0 +1,7 @@
+praw
+pandas 
+python-dotenv
+numpy
+matplotlib
+seaborn
+vaderSentiment
