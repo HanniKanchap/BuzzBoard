@@ -5,3 +5,5 @@ numpy
 matplotlib
 seaborn
 vaderSentiment
+scikit-learn
+sentence_transformers

@@ -23,11 +23,13 @@ def fetch_subreddit_data(sub="popular", limit=25):
         raw_text = post.selftext if post.selftext else post.title
         cleaned = clean_text(raw_text)
         posts.append({
+            "source":"reddit",
             "title": post.title,
             "raw_text": cleaned,
             "score": post.score,
             "num_comments": post.num_comments,
-            "created_utc": datetime.utcfromtimestamp(post.created_utc).isoformat(),
+            "post_obj" : post,
+            "publishedAt": datetime.utcfromtimestamp(post.created_utc).isoformat(),
             "url": post.url,
             "thumbnail": post.thumbnail,
             "domain": sub,
