@@ -10,9 +10,9 @@ def label_sentiment(s):
     elif s <= -0.5: return "Negative"
     else: return "Neutral"
 
-q = "AI"
-news_raw = fetch_news(api_key=os.getenv("NEWS_API"), query=q, page_size=50)
-df_news = pd.DataFrame(news_raw)
-df_news['domain'] = q
-df_news["sentiment_label"] = df_news["sentiment_score"].apply(label_sentiment)
-print(df_news[['title','source','sentiment_score','sentiment_label']])
+def news_df_finalize(query):
+    news_raw = fetch_news(api_key=os.getenv("NEWS_API"), query=query, page_size=50)
+    df_news = pd.DataFrame(news_raw)
+    df_news['domain'] = query
+    df_news["sentiment_label"] = df_news["sentiment_score"].apply(label_sentiment)
+    return df_news

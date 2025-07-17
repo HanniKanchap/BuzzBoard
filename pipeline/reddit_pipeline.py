@@ -44,3 +44,5 @@ def run_reddit_pipeline(sub="popular", limit=25, save=False):
 if __name__ == "__main__":
     df = run_reddit_pipeline(limit=10)
     print(df[["title", "sentiment_label", "engagement_score","domain","comment_sentiments_label"]])
+
+
