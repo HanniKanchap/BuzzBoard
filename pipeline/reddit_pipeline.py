@@ -30,7 +30,7 @@ def get_comment_sentiment(post,top_n=10):
     return 0.0  
 
 def run_reddit_pipeline(sub="popular", limit=25, save=False):
-    raw_data = fetch_subreddit_data(sub="Tech", limit=limit)
+    raw_data = fetch_subreddit_data(sub=sub, limit=limit)
     enriched = apply_sentiment(raw_data)
     df = pd.DataFrame(enriched)
     df["sentiment_label"] = df["sentiment"].apply(label_sentiment)

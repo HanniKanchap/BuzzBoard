@@ -1,0 +1,7 @@
+[theme]
+base="dark"
+primaryColor="#B388EB"                # Light purple accent (headlines, buttons)
+backgroundColor="#211F2A"             # Rich violet-gray base
+secondaryBackgroundColor="#2D2B39"    # Slightly lighter for containers/cards
+textColor="#EDEDED"                   # Soft platinum text
+font="sans serif"

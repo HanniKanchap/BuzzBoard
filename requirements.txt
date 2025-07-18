@@ -8,3 +8,4 @@ vaderSentiment
 scikit-learn
 sentence_transformers
 ipykernel
+streamlit
