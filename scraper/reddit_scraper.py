@@ -17,7 +17,7 @@ def clean_text(text):
     text = re.sub(r"[^\w\s]", "", text)
     return text.lower().strip()
 
-def fetch_subreddit_data(sub="popular", limit=25):
+def fetch_subreddit_data(sub="popular", limit=10):
     posts = []
     for post in reddit.subreddit(sub).hot(limit=limit):
         raw_text = post.selftext if post.selftext else post.title
@@ -32,7 +32,6 @@ def fetch_subreddit_data(sub="popular", limit=25):
             "publishedAt": datetime.utcfromtimestamp(post.created_utc).isoformat(),
             "url": post.url,
             "thumbnail": post.thumbnail,
-            "domain": sub,
             "engagement_score": post.score + post.num_comments
         })
     return posts

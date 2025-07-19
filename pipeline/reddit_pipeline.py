@@ -29,13 +29,14 @@ def get_comment_sentiment(post,top_n=10):
         return sum(scores) / len(scores) 
     return 0.0  
 
-def run_reddit_pipeline(sub="popular", limit=25, save=False):
+def run_reddit_pipeline(sub="popular",cat = "popular", limit=25, save=False):
     raw_data = fetch_subreddit_data(sub=sub, limit=limit)
     enriched = apply_sentiment(raw_data)
     df = pd.DataFrame(enriched)
     df["sentiment_label"] = df["sentiment"].apply(label_sentiment)
     df["comment_sentiments"] = df["post_obj"].apply(lambda p: get_comment_sentiment(p, top_n=5))
     df['comment_sentiments_label'] = df['comment_sentiments'].apply(label_sentiment)
+    df['domain'] = cat
     if save:
         df.to_csv(f"buzzboard/data/reddit_{sub}.csv", index=False)
 
