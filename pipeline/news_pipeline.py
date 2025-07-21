@@ -11,7 +11,7 @@ def label_sentiment(s):
     else: return "Neutral"
 
 def news_df_finalize(query):
-    news_raw = fetch_news(api_key=os.getenv("NEWS_API"), query=query, page_size=50)
+    news_raw = fetch_news(api_key=os.getenv("NEWS_API"), query=query, page_size=25)
     df_news = pd.DataFrame(news_raw)
     df_news['domain'] = query
     df_news["sentiment_label"] = df_news["sentiment_score"].apply(label_sentiment)

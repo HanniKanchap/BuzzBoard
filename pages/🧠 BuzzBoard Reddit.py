@@ -10,7 +10,7 @@ from DataPreprocessing.collecting_Data import get_subdomains
 st.set_page_config(page_title="Reddit Insights", page_icon="🐝", layout="wide")
 
 # --- Header ---
-st.markdown("## 🧠 Reddit BuzzBoard Explorer")
+st.markdown("## 🧠 BuzzBoard Reddit Explorer")
 st.markdown("Select a domain and data mode to view real-time emotional intelligence in Reddit threads.")
 
 # --- Controls ---

@@ -43,8 +43,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.image('./assets/hero_banner.webp', caption='BuzzBoard · Emotional Pulse Dashboard', use_container_width=True)
+st.image('./assets/Hero_Banner.jpeg', caption='BuzzBoard · Emotional Pulse Dashboard', use_container_width=True)
 # 📊 Snapshot Metrics
+
 st.subheader("📊 System Snapshot")
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Domains Tracked", "20")

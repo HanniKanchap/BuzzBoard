@@ -16,3 +16,12 @@ def clean_RedditData(data):
 
     return data
     
+
+def clean_NewsAPIData(data):
+    data['publishedAt'] = pd.to_datetime(data['publishedAt'])
+    data['Date_Format'] = data['publishedAt'].dt.date
+    data['Time_Format'] = data['publishedAt'].dt.time
+    data['thumbnail'] = data.apply(filter_thumbnail,axis = 1)
+    data.drop_duplicates()
+
+    return data
