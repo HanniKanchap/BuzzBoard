@@ -3,7 +3,7 @@
  *Decode the discourse. Visualize how the internet feels.*  
 BuzzBoard is a sentiment intelligence dashboard that blends Reddit discussions and NewsAPI articles to uncover emotional reactions, platform bias, and engagement trends — all visualized in an intuitive, aesthetically tuned interface.
 
-
+-> Explore BuzzBoard : [Here !!!](https://buzz-board.streamlit.app/)
 ## 🖼️ Preview
 
 ### Homepage Overview
