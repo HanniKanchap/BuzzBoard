@@ -1,11 +1,21 @@
 import streamlit as st
-
+import urllib.parse 
 # Page configuration
 st.set_page_config(
     page_title="BuzzBoard Home",
     page_icon="🧠",
     layout="wide"
 )
+
+with st.sidebar:
+    st.markdown("""
+    ### 👋 Welcome to BuzzBoard
+    Visualize public sentiment across Reddit & News. 
+
+    - 🧠 Track emotions 
+    -  📊 Compare platforms
+    - 📡 Decode the discourse
+    """)
 
 st.markdown("""
 <style>
@@ -103,6 +113,12 @@ st.markdown("""
 
 # ❓ FAQ Section
 st.subheader("💡 Frequently Asked Questions")
+with st.expander(" What does BuzzBoard do?"):
+    st.write("""
+BuzzBoard is a sentiment intelligence platform that analyzes emotional trends across Reddit and news sources.  
+It helps users visualize how people feel about key themes like politics, technology, climate, and more — using charts, comparisons, and emotional signal tracking.
+""")
+
 with st.expander("What sources does BuzzBoard use?"):
     st.write("BuzzBoard gathers data from Reddit (public posts + comments) and NewsAPI (news articles across publishers).")
 
@@ -114,6 +130,30 @@ with st.expander("Can I fetch live data or use cached results?"):
 
 with st.expander("What does 'engagement score' represent?"):
     st.write("It reflects audience interaction — comment volume, upvotes, and post reach — with tiers like 'High', 'Medium', and 'Low'.")
+
+##  Feedback 
+
+st.markdown("---")
+st.markdown("### 💌 Contact Us")
+
+with st.form("contact_form"):
+    name = st.text_input("Your Name")
+    user_email = st.text_input("Your Email")
+    query = st.text_area("Your Message", height=150)
+    submitted = st.form_submit_button("📨 Create Email")
+
+    if submitted:
+        if name and user_email and query:
+            subject = urllib.parse.quote("BuzzBoard Inquiry / Suggestion")
+            body = urllib.parse.quote(f"Name: {name}\nEmail: {user_email}\n\nMessage:\n{query}")
+            mailto_link = f"mailto:hannikanchap11@gmail.com?subject={subject}&body={body}"
+
+            st.markdown(f"""<p style="text-decoration:none;">
+            👉 <a href="{mailto_link}" style = 'text-decoration:white; color:white;'>Click here to open your email client and send</a></p>""", unsafe_allow_html=True)   
+            st.info("✅ Your message has been pre-filled. Just hit send from your mail app.")
+        else:
+            st.warning("⚠️ Please complete all fields before submitting.")
+
 
 # 🛠 Footer
 st.markdown("---")
